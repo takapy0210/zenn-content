@@ -157,6 +157,11 @@ $ docker-compose up zenn-preview
 >>>
 👀 Preview on http://localhost:8000
 ```
+
+こんな感じでプレビューが表示されます↓
+![プレビュー画面](https://storage.googleapis.com/zenn-user-upload/naxen8j37hhl0hwbvzgrct4ui0sr)
+
+
 プレビューで問題がなければ、Githubにpushして終わりです！
 
 # 最後に
