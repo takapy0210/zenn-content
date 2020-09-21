@@ -1,6 +1,6 @@
 ---
 title: "Zenn CLI環境をdockerで構築し、Github経由で記事投稿を行う"
-emoji: "🍀"
+emoji: "🐳"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["zenn", "docker", "GitHub", "nodejs", "bash"]
 published: false
@@ -18,16 +18,19 @@ published: false
 
 @[tweet](https://twitter.com/takapy0210/status/1308055724061126656)
 
-本記事で紹介しているコードは下記リポジトリでも公開しています。  
+コードは下記リポジトリで公開しています。  
 https://github.com/takapy0210/zenn-content
 
+また、本記事も以降で紹介するdocker環境で作成したものになります。
 
 # コンテナ環境の準備
 
+:::message
 docker自体についての説明は巷にあふれているので、今回は割愛します。  
+:::
 
 Githubと連携するローカルディレクトリに`Dockerfile`と`docker-compose.yml`の2ファイルを用意します。  
-また、記事のmdを自動生成する際、ファイル名に`日付prefix`をデフォルトで付与するためのスクリプトも用意しました。
+また、記事のmdファイルを自動生成する際、ファイル名に`日付prefix`をデフォルトで付与するためのスクリプトも用意しました。
 
 ## Dockerfile
 dockerfileです。
@@ -130,7 +133,7 @@ zenn-init exited with code 0
 ```
 
 :::message
-このビルドと初期化処理は最初の1回のみ行えばOKです。  
+このビルドと初期化処理は初回のみ行えばOKです。  
 定期的に記事を作成する場合に必要なのは↓以降の手順のみです。
 :::
 
@@ -143,8 +146,8 @@ zenn-init exited with code 0
 $ docker-compose up -d zenn-new-article
 ```
 
-# 作成した記事のプレビュー
-記事を作成したら、プレビューで正しく表示されるか確認します。  
+# 作成した記事のプレビューを表示
+記事を作成したら、プレビューで意図した内容になっているか確認します。  
 （ブラウザで`http://localhost:8000`にアクセスして確認できます）
 
 ```bash
