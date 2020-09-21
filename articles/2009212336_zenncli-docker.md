@@ -3,7 +3,7 @@ title: "Zenn CLI環境をdockerで構築し、Github経由で記事投稿を行�
 emoji: "🐳"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["zenn", "docker", "GitHub", "nodejs", "bash"]
-published: false
+published: true
 ---
 
 # はじめに
