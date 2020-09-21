@@ -11,10 +11,12 @@ published: false
 こんにちは。たかぱい（[@takapy0210](https://twitter.com/takapy0210)）です。
 
 みなさんご存知の通り、ZennとGitHubリポジトリを連携することで、ローカルの好きなエディターで投稿コンテンツの作成・編集ができます。  
-このローカルでの執筆時には「[Zenn CLI](https://zenn.dev/zenn/articles/install-zenn-cli)」を導入すると、マークダウンファイルの作成がスムーズになったり、コンテンツをプレビュー表示することが可能になります。  
-このZenn CLIはNode.js製のため、Node.jsをはじめて使う場合は別途環境構築が必要になります。
+このローカルでの執筆時には「[Zenn CLI](https://zenn.dev/zenn/articles/install-zenn-cli)」を導入すると、Markdownファイルの作成がスムーズになったり、コンテンツをプレビュー表示することが可能になります。  
+このZenn CLIはNode.js製のため、はじめて使う場合は別途環境構築が必要になります。
 
 ローカルに直接環境構築しても良いのですが、環境をあまり汚したくない人も多いのでは？と思い、このZenn CLI環境をdockerで構築してみました。
+
+@[tweet](https://twitter.com/takapy0210/status/1308055724061126656)
 
 本記事で紹介しているコードは下記リポジトリでも公開しています。  
 https://github.com/takapy0210/zenn-content
@@ -101,7 +103,7 @@ npx zenn new:article --slug "$slug"_hoge --title タイトル --type tech --emoj
 コンテナをビルドし、zenn環境の初期化処理を行います。  
 `docker-compose up -d zenn-init`を実行すると、カレントディレクトリに`articles`や`books`といったディレクトリが自動的に生成されます。
 
-```sh
+```bash
 # ビルド
 $ docker-compose build
 
@@ -127,11 +129,16 @@ zenn-init       |
 zenn-init exited with code 0
 ```
 
+:::message
+このビルドと初期化処理は最初の1回のみ行えばOKです。  
+定期的に記事を作成する場合に必要なのは↓以降の手順のみです。
+:::
+
 # 記事の作成
 下記コマンドで新規記事（.mdファイル）を作成できます。  
 時系列で管理しやすいように、初期ファイル名は`YYMMDDhhmm_hoge.md`となるようにしています。
 
-```sh
+```bash
 # 新規記事のテンプレートファイルを作成
 $ docker-compose up -d zenn-new-article
 ```
@@ -140,7 +147,7 @@ $ docker-compose up -d zenn-new-article
 記事を作成したら、プレビューで正しく表示されるか確認します。  
 （ブラウザで`http://localhost:8000`にアクセスして確認できます）
 
-```sh
+```bash
 # 記事のプレビューを表示
 $ docker-compose up zenn-preview
 
