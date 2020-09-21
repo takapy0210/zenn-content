@@ -2,7 +2,7 @@
 title: "Zenn CLI環境をdockerで構築し、Github経由で記事投稿を行う"
 emoji: "🍀"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["zenn", "docker", "GitHub", "node", "bash"]
+topics: ["zenn", "docker", "GitHub", "nodejs", "bash"]
 published: false
 ---
 
@@ -98,6 +98,9 @@ npx zenn new:article --slug "$slug"_hoge --title タイトル --type tech --emoj
 
 # zenn CLI環境のビルド&初期化
 
+コンテナをビルドし、zenn環境の初期化処理を行います。  
+`docker-compose up -d zenn-init`を実行すると、カレントディレクトリに`articles`や`books`といったディレクトリが自動的に生成されます。
+
 ```sh
 # ビルド
 $ docker-compose build
@@ -129,6 +132,7 @@ zenn-init exited with code 0
 時系列で管理しやすいように、初期ファイル名は`YYMMDDhhmm_hoge.md`となるようにしています。
 
 ```sh
+# 新規記事のテンプレートファイルを作成
 $ docker-compose up -d zenn-new-article
 ```
 
@@ -137,6 +141,7 @@ $ docker-compose up -d zenn-new-article
 （ブラウザで`http://localhost:8000`にアクセスして確認できます）
 
 ```sh
+# 記事のプレビューを表示
 $ docker-compose up zenn-preview
 
 >>>
