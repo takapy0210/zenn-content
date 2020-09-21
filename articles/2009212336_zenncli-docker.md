@@ -12,7 +12,7 @@ published: false
 
 みなさんご存知の通り、ZennとGitHubリポジトリを連携することで、ローカルの好きなエディターで投稿コンテンツの作成・編集ができます。  
 このローカルでの執筆時には「[Zenn CLI](https://zenn.dev/zenn/articles/install-zenn-cli)」を導入すると、Markdownファイルの作成がスムーズになったり、コンテンツをプレビュー表示することが可能になります。  
-このZenn CLIはNode.js製のため、はじめて使う場合は別途環境構築が必要になります。
+このZenn CLIはNode.js製のため、はじめて使う場合は環境構築（Node.jsのインストールなど）が必要となります。
 
 ローカルに直接環境構築しても良いのですが、環境をあまり汚したくない人も多いのでは？と思い、このZenn CLI環境をdockerで構築してみました。
 
@@ -21,7 +21,7 @@ published: false
 コードは下記リポジトリで公開しています。  
 https://github.com/takapy0210/zenn-content
 
-また、本記事も以降で紹介するdocker環境で作成したものになります。
+また、本記事もここで紹介するdocker環境で作成したものになります。
 
 # コンテナ環境の準備
 
